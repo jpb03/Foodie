@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="Foodie.LoginPage"  
+             Title="Login"  
+             BackgroundColor="#fffaf5">  
+    <StackLayout Padding="30" Spacing="15" VerticalOptions="Center">  
+        <Label Text="👋 Bienvenido a Foodie" FontSize="28" HorizontalOptions="Center" />  
+        <Entry x:Name="usernameEntry" Placeholder="Usuario" />  
+        <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True" />  
+        <Button Text="Iniciar Sesión" Clicked="OnLoginClicked" />  
+        <Button Text="Registrar" Clicked="OnRegisterClicked" />  
+    </StackLayout>  
+</ContentPage>

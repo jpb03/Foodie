@@ -1,0 +1,48 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foodie.RecetasPage"
+             Title="🍽️ Recetas Guardadas">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+            <SearchBar x:Name="buscarEntry" 
+                       TextChanged="OnBuscarReceta" 
+                       Placeholder="🔍 Buscar recetas por nombre..." />
+
+            <CollectionView x:Name="recetaList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#FF8C00" BackgroundColor="#FFF9F0" CornerRadius="15" Margin="5" Padding="15" HasShadow="True">
+                            <VerticalStackLayout Spacing="8">
+
+                                <Label Text="{Binding Nombre}" 
+                                       FontSize="20" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#D2691E" />
+
+                                <Label Text="{Binding Categoria, StringFormat='🍽️ Categoría: {0}'}" 
+                                       FontSize="14" 
+                                       TextColor="Gray" />
+
+                                <Label Text="{Binding Ingredientes, StringFormat='🧂 Ingredientes: {0}'}"
+                                       FontSize="14" 
+                                       TextColor="Black"
+                                       LineBreakMode="WordWrap" />
+
+                                <Label Text="{Binding Preparacion, StringFormat='👨‍🍳 Preparación: {0}'}"
+                                       FontSize="14" 
+                                       TextColor="Black"
+                                       LineBreakMode="WordWrap" />
+
+                                <Label Text="{Binding Tiempo, StringFormat='⏱️ Tiempo: {0}'}"
+                                       FontSize="14" 
+                                       TextColor="Black" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Foodie.DesayunoPage"
+             Title="🍳 Desayunos"
+             BackgroundColor="#fffaf5">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+
+            <Label Text="Nuevo Desayuno" FontSize="20" FontAttributes="Bold" />
+
+            <!-- Nombre -->
+            <Label Text="Nombre:" FontAttributes="Bold" FontSize="16" TextColor="#333" />
+            <Entry x:Name="nombreEntry"
+                   Placeholder="Ej: Panqueques"
+                   BackgroundColor="White" />
+
+            <!-- Ingredientes -->
+            <Label Text="Ingredientes:" FontAttributes="Bold" FontSize="16" TextColor="#333" Margin="0,10,0,0" />
+            <Label Text="Ej: Harina, leche, huevo" FontSize="12" TextColor="#666" />
+            <Editor x:Name="ingredientesEditor"
+                    Placeholder="Escribe los ingredientes..."
+                    AutoSize="TextChanges"
+                    BackgroundColor="White" />
+
+            <!-- Preparación -->
+            <Label Text="Preparación:" FontAttributes="Bold" FontSize="16" TextColor="#333" Margin="0,10,0,0" />
+            <Label Text="Ej: Mezclar y freír" FontSize="12" TextColor="#666" />
+            <Editor x:Name="preparacionEditor"
+                    Placeholder="Escribe la preparación..."
+                    AutoSize="TextChanges"
+                    BackgroundColor="White" />
+
+            <!-- Tiempo -->
+            <Label Text="Tiempo:" FontAttributes="Bold" FontSize="16" TextColor="#333" Margin="0,10,0,0" />
+            <Label Text="Ej: 15 minutos ⏱️" FontSize="12" TextColor="#666" />
+            <Entry x:Name="tiempoEntry"
+                   Placeholder="Escribe el tiempo..."
+                   BackgroundColor="White" />
+
+            <Button Text="✅ Guardar Desayuno"
+                    Clicked="OnGuardarClicked"
+                    BackgroundColor="#c8facc"
+                    TextColor="Black"
+                    CornerRadius="10"
+                    Margin="0,15,0,0" />
+
+            <!-- Lista de desayunos -->
+            <Label Text="🍳 Desayunos guardados"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <CollectionView x:Name="desayunoList"
+                            Margin="0,0,0,20"
+                            EmptyView="Aún no hay desayunos guardados. 🍳">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#ccc" CornerRadius="8" Padding="10" Margin="0,5">
+                            <StackLayout>
+                                <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="18" />
+                                <Label Text="🧂 Ingredientes:" FontAttributes="Bold" FontSize="14" />
+                                <Label Text="{Binding Ingredientes}" FontSize="14" />
+                                <Label Text="👨‍🍳 Preparación:" FontAttributes="Bold" FontSize="14" />
+                                <Label Text="{Binding Preparacion}" FontSize="14" />
+                                <Label Text="⏱️ Tiempo:" FontAttributes="Bold" FontSize="14" />
+                                <Label Text="{Binding Tiempo}" FontSize="14" />
+                                <Button Text="🗑 Eliminar"
+                                        Clicked="OnEliminarClicked"
+                                        CommandParameter="{Binding Id}"
+                                        BackgroundColor="#ffdddd"
+                                        CornerRadius="8"
+                                        TextColor="DarkRed" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
